@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://hkiw534ma61n"]
+
+[ext_resource type="Texture2D" uid="uid://d0nlmj30sn53o" path="res://Flappy_Bird_assets by kosresetr55/Game Objects/background-day.png" id="1_lphbk"]
+
+[node name="Background" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(183, 325.333)
+scale = Vector2(1.27083, 1.27083)
+texture = ExtResource("1_lphbk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(288, 0)
+texture = ExtResource("1_lphbk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sprite2D"]
+position = Vector2(288, 0)
+texture = ExtResource("1_lphbk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sprite2D/Sprite2D"]
+position = Vector2(288, 0)
+texture = ExtResource("1_lphbk")

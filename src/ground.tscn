@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb24ydkaak4i0"]
+
+[ext_resource type="Texture2D" uid="uid://w7a2s3xscm24" path="res://Flappy_Bird_assets by kosresetr55/Game Objects/base.png" id="1_mt4wc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0wk2"]
+size = Vector2(12.7786, 111.723)
+
+[node name="Ground" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(577, 633)
+rotation = 3.14159
+scale = Vector2(90.3852, 1.10096)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_o0wk2")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+rotation = -3.14159
+scale = Vector2(0.038, 1)
+texture = ExtResource("1_mt4wc")
+
+[node name="GroundNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(576.318, 631.635)
+rotation = 3.14159
+scale = Vector2(57.5201, 6.10911)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1730, 633)
+rotation = 3.14159
+scale = Vector2(90.3852, 1.10096)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_o0wk2")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+rotation = -3.14159
+scale = Vector2(0.038, 1)
+texture = ExtResource("1_mt4wc")

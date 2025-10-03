@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbo3n185lkmjt"]
+
+[ext_resource type="PackedScene" uid="uid://b5fqbji8vtss1" path="res://src/bird.tscn" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://e0576gqcqxia" path="res://src/Main.cs" id="1_vjwby"]
+[ext_resource type="PackedScene" uid="uid://hkiw534ma61n" path="res://src/Background.tscn" id="2_8ec3e"]
+[ext_resource type="PackedScene" uid="uid://byevgir57yy0y" path="res://src/pipe.tscn" id="2_hk4rc"]
+[ext_resource type="PackedScene" uid="uid://bqsdand7n3o4x" path="res://src/HUD.tscn" id="3_38a0m"]
+[ext_resource type="PackedScene" uid="uid://cb24ydkaak4i0" path="res://src/ground.tscn" id="5_8ec3e"]
+
+[sub_resource type="Gradient" id="Gradient_chrbn"]
+offsets = PackedFloat32Array(0, 0.597315, 0.798658, 1)
+colors = PackedColorArray(0, 0.529412, 1, 1, 0.00392157, 0.772549, 0.780392, 1, 0.120131, 0.799085, 0.806013, 1, 0.815686, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_glv2v"]
+gradient = SubResource("Gradient_chrbn")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_vjwby")
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Background2" parent="Objects" instance=ExtResource("2_8ec3e")]
+
+[node name="Bird" parent="Objects" instance=ExtResource("1_glv2v")]
+position = Vector2(358, 279)
+
+[node name="Pipe" parent="Objects" instance=ExtResource("2_hk4rc")]
+visible = false
+position = Vector2(450, 573)
+
+[node name="Ground" parent="Objects" instance=ExtResource("5_8ec3e")]
+
+[node name="Background" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(576.623, 323.601)
+rotation = 1.5708
+scale = Vector2(2.52099, 1155.71)
+texture = SubResource("GradientTexture1D_glv2v")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="HUD" parent="." instance=ExtResource("3_38a0m")]
+
+[node name="DifficultyTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="Objects/Pipe" to="Objects/Bird" method="OnPipeBodyEntered"]
+[connection signal="timeout" from="SpawnTimer" to="." method="OnSpawnTimerTimeout"]
+[connection signal="StartGame" from="HUD" to="." method="NewGame"]
+[connection signal="timeout" from="DifficultyTimer" to="." method="OnDifficultyTimerTimeout"]

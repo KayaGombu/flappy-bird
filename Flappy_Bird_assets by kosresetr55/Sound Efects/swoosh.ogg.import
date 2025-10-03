@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://wlvwjexs3fwp"
+path="res://.godot/imported/swoosh.ogg-f542fdbbd0d42f86eca670af823e0f8d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Flappy_Bird_assets by kosresetr55/Sound Efects/swoosh.ogg"
+dest_files=["res://.godot/imported/swoosh.ogg-f542fdbbd0d42f86eca670af823e0f8d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
