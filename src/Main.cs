@@ -45,8 +45,6 @@ public partial class Main : Node2D
         isStart = true;
         bird.Show();
         bird.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
-        //CreateGapPipes(100f, 750, 100f);
-        //CreateGapPipes(300f, 950, 300);
     }
     public void GameOver()
     {
@@ -94,7 +92,7 @@ public partial class Main : Node2D
         var notif = (VisibleOnScreenNotifier2D)pipe.GetNode("VisibleOnScreenNotifier2D");
         GetNode("Objects").AddChild(pipe);
 
-        //Connect BodyEntered signl
+        //Connect BodyEntered signal
         pipe.BodyEntered += OnPipeBodyEntered;
         notif.ScreenExited += OnVisibleOnScreenNotifier2DScreenExited;
 
@@ -148,8 +146,8 @@ public partial class Main : Node2D
     {
         if (timer.WaitTime > 1)
         {
-           // timer.WaitTime -= 0.2;
-           // gapSize -= 20;
+            timer.WaitTime -= 0.2;
+            gapSize -= 20;
         }
     }
     public void OnVisibleOnScreenNotifier2DScreenExited()
